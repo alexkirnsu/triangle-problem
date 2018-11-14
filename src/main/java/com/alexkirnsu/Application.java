@@ -1,7 +1,7 @@
-package com.github.alexkirnsu;
+package com.alexkirnsu;
 
-import com.github.alexkirnsu.model.Triangle;
-import com.github.alexkirnsu.parser.DataParser;
+import com.alexkirnsu.model.Triangle;
+import com.alexkirnsu.parser.DataParser;
 
 import java.util.Scanner;
 

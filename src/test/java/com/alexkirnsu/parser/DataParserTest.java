@@ -1,4 +1,4 @@
-package com.github.alexkirnsu.parser;
+package com.alexkirnsu.parser;
 
 import org.junit.Rule;
 import org.junit.Test;

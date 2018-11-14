@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.alexkirnsu</groupId>
+    <groupId>com.alexkirnsu</groupId>
     <artifactId>triangle-problem</artifactId>
     <version>1.0</version>
 
@@ -36,7 +36,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>com.github.alexkirnsu.Application</mainClass>
+                            <mainClass>com.alexkirnsu.Application</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

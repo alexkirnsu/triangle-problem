@@ -1,4 +1,4 @@
-package com.github.alexkirnsu.model;
+package com.alexkirnsu.model;
 
 import static java.lang.Math.abs;
 

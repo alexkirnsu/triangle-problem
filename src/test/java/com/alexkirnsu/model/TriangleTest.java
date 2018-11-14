@@ -1,4 +1,4 @@
-package com.github.alexkirnsu.model;
+package com.alexkirnsu.model;
 
 import org.junit.Rule;
 import org.junit.Test;

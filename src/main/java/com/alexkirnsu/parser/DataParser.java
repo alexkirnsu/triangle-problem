@@ -1,4 +1,4 @@
-package com.github.alexkirnsu.parser;
+package com.alexkirnsu.parser;
 
 public class DataParser {
 
