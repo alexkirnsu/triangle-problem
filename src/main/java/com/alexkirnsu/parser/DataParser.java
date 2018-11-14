@@ -3,14 +3,24 @@ package com.alexkirnsu.parser;
 
 import lombok.extern.log4j.Log4j2;
 
+import java.util.ResourceBundle;
+
 @Log4j2
 public class DataParser {
 
-    private static final String STRING_TO_PARSE_IS_NULL = "Can't parse null string";
-    private static final String SIDE_COUNT_NOT_POSITIVE =
-            "Expected count of sides should be positive integer";
-    private static final String WRONG_ACTUAL_COUNT_OF_SIDES = "Wrong actual count of sides";
-    private static final String WRONG_TYPE_OF_INPUT_DATA = "Length of side should be double";
+    private static final ResourceBundle resource;
+    private static final String STRING_TO_PARSE_IS_NULL;
+    private static final String SIDE_COUNT_NOT_POSITIVE;
+    private static final String WRONG_ACTUAL_COUNT_OF_SIDES;
+    private static final String WRONG_TYPE_OF_INPUT_DATA;
+
+    static {
+        resource = ResourceBundle.getBundle("error.errorMessage");
+        STRING_TO_PARSE_IS_NULL = resource.getString("STRING_TO_PARSE_IS_NULL");
+        SIDE_COUNT_NOT_POSITIVE = resource.getString("SIDE_COUNT_NOT_POSITIVE");
+        WRONG_ACTUAL_COUNT_OF_SIDES = resource.getString("WRONG_ACTUAL_COUNT_OF_SIDES");
+        WRONG_TYPE_OF_INPUT_DATA = resource.getString("WRONG_TYPE_OF_INPUT_DATA");
+    }
 
     /**
      * Returns array of triangle side length.

@@ -2,6 +2,8 @@ package com.alexkirnsu.model;
 
 import lombok.extern.log4j.Log4j2;
 
+import java.util.ResourceBundle;
+
 import static java.lang.Math.abs;
 
 @Log4j2
@@ -11,11 +13,17 @@ public class Triangle {
      */
     public static final double THRESHOLD = 1e-14;
     public static final int SIDE_COUNT = 3;
-    private static final String TRIANGLE_INEQUALITY_DOESNT_HOLD = "Triangle inequality doesn't hold";
+    private static final ResourceBundle resource;
+    private static final String TRIANGLE_INEQUALITY_DOESNT_HOLD;
 
     private double[] sides;
     private TriangleType type;
 
+    static {
+        resource = ResourceBundle.getBundle("error.errorMessage");
+        TRIANGLE_INEQUALITY_DOESNT_HOLD =
+                resource.getString("TRIANGLE_INEQUALITY_DOESNT_HOLD");
+    }
     /**
      * Creates triangle instance if {@code sides} satisfy
      * triangle inequality.

@@ -1,14 +1,10 @@
 package com.alexkirnsu.model;
 
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 
 import static org.junit.Assert.assertEquals;
 
 public class TriangleTest {
-
-    private static final String TRIANGLE_INEQUALITY_DOESNT_HOLD = "Triangle inequality doesn't hold";
 
     private final double[] illegalTriangleLengths = {1, 2, 3};
     private final double[] equilateralTriangleLengths = {2, 2, 2};
@@ -17,14 +13,8 @@ public class TriangleTest {
     private final double[] differenceBetweenTwoLengthLessThenThreshold =
             {1, 10 + 0.1 * Triangle.THRESHOLD, 10 + 0.2 * Triangle.THRESHOLD};
 
-    @Rule
-    public ExpectedException thrown = ExpectedException.none();
-
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void constructor_IfTriangleInequalityDoesntHold_ThrowIllegalArgumentException() {
-        thrown.expect(IllegalArgumentException.class);
-        thrown.expectMessage(TRIANGLE_INEQUALITY_DOESNT_HOLD);
-
         new Triangle(illegalTriangleLengths);
     }
 
