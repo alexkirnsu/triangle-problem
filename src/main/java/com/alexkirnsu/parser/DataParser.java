@@ -1,5 +1,9 @@
 package com.alexkirnsu.parser;
 
+
+import lombok.extern.log4j.Log4j2;
+
+@Log4j2
 public class DataParser {
 
     private static final String STRING_TO_PARSE_IS_NULL = "Can't parse null string";
@@ -23,9 +27,11 @@ public class DataParser {
      */
     public static double[] parseSides(String inputData, int sideCount) {
         if (inputData == null) {
+            log.info("inputData parameter is null");
             throw new NullPointerException(STRING_TO_PARSE_IS_NULL);
         }
         if (sideCount <= 0) {
+            log.info("sideCount parameter isn't positive ({})", sideCount);
             throw new IllegalArgumentException(SIDE_COUNT_NOT_POSITIVE);
         }
         return parse(inputData, sideCount);
@@ -67,8 +73,11 @@ public class DataParser {
      */
     private static double[] getSides(String inputData, int sideCount) {
         String[] sidesAsString = getSidesAsString(inputData);
+        int actualSideCount = sidesAsString.length;
 
-        if (sidesAsString.length != sideCount) {
+        if (actualSideCount != sideCount) {
+            log.info("Actual count of parameters ({}) isn't equal to expected one ({})",
+                    actualSideCount, sideCount);
             throw new IllegalArgumentException(WRONG_ACTUAL_COUNT_OF_SIDES);
         }
         return getDoublesFromStrings(sidesAsString, sideCount);
@@ -99,6 +108,7 @@ public class DataParser {
             try {
                 sides[i] = Double.valueOf(sidesAsString[i]);
             } catch (NumberFormatException e) {
+                log.info("Input side length is not double ({})", sidesAsString[i]);
                 throw new IllegalArgumentException(WRONG_TYPE_OF_INPUT_DATA);
             }
         }

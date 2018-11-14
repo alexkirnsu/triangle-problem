@@ -1,7 +1,10 @@
 package com.alexkirnsu.model;
 
+import lombok.extern.log4j.Log4j2;
+
 import static java.lang.Math.abs;
 
+@Log4j2
 public class Triangle {
     /**
      * Precision of comparison for {@code double}
@@ -38,6 +41,8 @@ public class Triangle {
     private boolean holdsTriangleInequality(double[] sides) {
         for (int i = 0; i < SIDE_COUNT; i++) {
             if (sides[i] + sides[(i + 1) % SIDE_COUNT] <= sides[(i + 2) % SIDE_COUNT]) {
+                log.info("Sides are not satisfy triangle inequality ({} + {} <= {}", sides[i],
+                        sides[(i + 1) % SIDE_COUNT], sides[(i + 2) % SIDE_COUNT]);
                 return false;
             }
         }
