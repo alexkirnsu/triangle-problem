@@ -35,7 +35,7 @@ public class Triangle {
             throw new IllegalArgumentException(TRIANGLE_INEQUALITY_DOESNT_HOLD);
         }
         this.sides = sides;
-        this.type = TriangleType.SCALENE;
+        this.type = defineType();
     }
 
     /**
@@ -62,9 +62,10 @@ public class Triangle {
      *
      * @return {@code TriangleType} object
      */
-    public TriangleType getType() {
+    private TriangleType defineType() {
         int numberOfEqualSidePairs = getNumberOfEqualSidePairs();
 
+        this.type = TriangleType.SCALENE;
         if (numberOfEqualSidePairs == SIDE_COUNT) {
             type = TriangleType.EQUILATERAL;
         } else if (numberOfEqualSidePairs > 0) {
@@ -87,5 +88,14 @@ public class Triangle {
             }
         }
         return numberOfEqualSidePairs;
+    }
+
+    /**
+     * Returns type (@code TriangleType) of triangle
+     *
+     * @return type field
+     */
+    public TriangleType getType() {
+        return type;
     }
 }
